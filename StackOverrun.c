@@ -4,12 +4,10 @@
 
 int main(int argc, char* argv[])
 {
-	if(argc != 2){
-		printf("Please use :\n$ ./mycat filename\n");
-		exit(0);
-	}
     char buff[15];
     int pass = 0;
+    char command[100];
+    strcpy(command, "cat ");
 
     printf("\n Enter the password : \n");
     gets(buff);
@@ -28,8 +26,9 @@ int main(int argc, char* argv[])
     {
        /* Now Give root or admin rights to user*/
         printf ("\n Root privileges given to the user \n");
-        char command[100] = "cat ";
-        strcat(command, argv[1]);
+        printf("\n Give the name of the file you want to show \n");
+        gets(buff);
+        strcat(command, buff);
         system(command);
     }
 
